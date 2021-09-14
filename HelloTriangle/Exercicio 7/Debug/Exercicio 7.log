@@ -1,0 +1,3 @@
+﻿  Origem.cpp
+C:\Users\camyl\OneDrive\Documentos\Unisinos\PG2021-2-main\HelloTriangle\Exercicio 7\Origem.cpp(33,25): warning C4305: 'inicializando': truncamento de 'double' para 'float'
+  Exercicio 7.vcxproj -> C:\Users\camyl\OneDrive\Documentos\Unisinos\PG2021-2-main\HelloTriangle\Debug\Exercicio 7.exe

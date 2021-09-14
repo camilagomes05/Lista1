@@ -1,0 +1,4 @@
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(513,5): warning MSB8028: O diretório intermediário (Debug\) contém arquivos compartilhados de outro projeto (Exeercicio 6 b.vcxproj). Isso pode levar a um comportamento incorreto de limpeza e recompilação.
+  Origem.cpp
+C:\Users\camyl\OneDrive\Documentos\Unisinos\PG2021-2-main\HelloTriangle\Exeercicio 6 b\Origem.cpp(226,2): warning C4305: 'inicializando': truncamento de 'double' para 'GLfloat'
+  Exeercicio 6 b.vcxproj -> C:\Users\camyl\OneDrive\Documentos\Unisinos\PG2021-2-main\HelloTriangle\Debug\Exercicio 6 b.exe

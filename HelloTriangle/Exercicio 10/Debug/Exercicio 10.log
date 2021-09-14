@@ -1,0 +1,5 @@
+﻿  glad.c
+  Origem.cpp
+C:\Users\camyl\OneDrive\Documentos\Unisinos\PG2021-2-main\HelloTriangle\Exercicio 10\Origem.cpp(43,40): warning C4101: 'e': variável local não referenciada
+MSVCRTD.lib(exe_main.obj) : error LNK2019: símbolo externo não resolvido, _main, referenciado na função "int __cdecl invoke_main(void)" (?invoke_main@@YAHXZ)
+C:\Users\camyl\OneDrive\Documentos\Unisinos\PG2021-2-main\HelloTriangle\Debug\Exercicio 10.exe : fatal error LNK1120: 1 externo não resolvidos

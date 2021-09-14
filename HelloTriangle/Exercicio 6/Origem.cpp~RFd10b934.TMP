@@ -1,0 +1,62 @@
+void onDisplayRefreshSO2(void* ctx)
+{
+    //Setup OpenGL once..
+    static std::once_flag flag;
+    std::call_once(flag, [] {
+        GLfloat view_port[4] = { 0 };
+        glGetFloatv(GL_VIEWPORT, &view_port[0]);
+        GLfloat screen_width = view_port[2] - view_port[0];
+        GLfloat screen_height = view_port[3] - view_port[1];
+
+        glMatrixMode(GL_PROJECTION);
+        gluPerspective(45.0, screen_width / screen_height, 0.1f, 1000.0f);
+
+        glMatrixMode(GL_MODELVIEW);
+        glLoadIdentity();
+
+        glShadeModel(GL_SMOOTH);                            // Enable Smooth Shading
+        glClearDepth(1.0f);                                    // Depth Buffer Setup
+        glEnable(GL_DEPTH_TEST);                            // Enables Depth Testing
+        glDepthFunc(GL_LEQUAL);                                // The Type Of Depth Testing To Do
+        glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);    // Really Nice Perspective Calculations
+        });
+
+
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+
+
+    /** Setup Drawing Triangles **/
+    GLfloat normals[] = {
+        0, 0, 1,   0, 0, 1,   0, 0, 1,
+        0, 0, 1,   0, 0, 1,   0, 0, 1
+    };
+
+    GLfloat colors[] = {
+        1, 1, 1,   1, 1, 0,   1, 0, 0,
+        0, 1, 1,   0, 1, 0,   0, 0, 1
+    };
+
+    GLfloat vertices[] = {
+        1, 1, 1,  -1, 1, 1,  -1,-1, 1,
+        1, 1, 1,  1, -1, 1,  -1,-1, 1
+    };
+
+
+    //Draw both triangles in a single call..
+    glEnableClientState(GL_NORMAL_ARRAY);
+    glEnableClientState(GL_COLOR_ARRAY);
+    glEnableClientState(GL_VERTEX_ARRAY);
+    glNormalPointer(GL_FLOAT, 0, normals);
+    glColorPointer(3, GL_FLOAT, 0, colors);
+    glVertexPointer(3, GL_FLOAT, 0, vertices);
+
+    glPushMatrix();
+    glTranslatef(-1.0f, 0.0f, -6.0f);
+    glDrawArrays(GL_TRIANGLES, 0, (sizeof(vertices) / sizeof(vertices[0])) / 3); //6 vertices (X, Y, Z) for 2 triangles..
+    glPopMatrix();
+
+    glDisableClientState(GL_VERTEX_ARRAY);
+    glDisableClientState(GL_COLOR_ARRAY);
+    glDisableClientState(GL_NORMAL_ARRAY);
+}
